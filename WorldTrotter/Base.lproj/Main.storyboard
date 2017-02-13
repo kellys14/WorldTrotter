@@ -94,18 +94,39 @@
             </objects>
             <point key="canvasLocation" x="1339.1304347826087" y="92.934782608695656"/>
         </scene>
+        <!--Web Scene-->
+        <scene sceneID="kmR-eV-fnh">
+            <objects>
+                <viewController title="Web Scene" id="OyK-pa-bmF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fv0-ou-sJ1"/>
+                        <viewControllerLayoutGuide type="bottom" id="E4g-F5-KBJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fPo-hL-n8O">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Web" id="D0q-Hi-8qa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bmm-5f-4Gd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2220" y="93"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="oLa-1E-0nQ">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="bGY-sT-GYL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="CN5-WP-TlW">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="UOx-jO-03P" kind="relationship" relationship="viewControllers" id="Mjj-JZ-dl9"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="QM1-s2-1nT"/>
+                        <segue destination="OyK-pa-bmF" kind="relationship" relationship="viewControllers" id="R4i-Op-c1c"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gub-Au-crg" userLabel="First Responder" sceneMemberID="firstResponder"/>

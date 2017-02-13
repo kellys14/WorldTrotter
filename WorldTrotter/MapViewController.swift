@@ -47,6 +47,19 @@ class MapViewController: UIViewController {
         trailingConstraint.isActive = true
     }
     
+    func mapTypeChanged(_ segControl: UISegmentedControl) {
+        switch segControl.selectedSegmentIndex {
+        case 0:
+            mapView.mapType = .standard
+        case 1:
+            mapView.mapType = .hybrid
+        case 2:
+            mapView.mapType = .satellite
+        default:
+            break
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,18 +67,6 @@ class MapViewController: UIViewController {
     }
 }
 
-func mapTypeChanged(_ segControl: UISegmentedControl) {
-    switch segControl.selectedSegmentIndex {
-    case 0:
-        mapView.mapType = .standard
-    case 1:
-        mapView.mapType = .hybrid
-    case 2:
-        mapView.mapType = .satellite
-    default:
-        break
-    }
-}
 
 /*
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
