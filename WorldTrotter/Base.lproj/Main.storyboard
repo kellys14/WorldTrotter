@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bGY-sT-GYL">
-    <device id="retina5_5" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bGY-sT-GYL">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,29 +18,29 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Fahrenheit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvz-pv-siG">
-                                <rect key="frame" x="55" y="120" width="306" height="43"/>
+                                <rect key="frame" x="35.5" y="120" width="306" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is really" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fp-8A-wWt">
-                                <rect key="frame" x="147" y="171" width="119" height="43"/>
+                                <rect key="frame" x="127.5" y="171" width="119" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLC-YT-ptD">
-                                <rect key="frame" x="148" y="222" width="117" height="84"/>
+                                <rect key="frame" x="128.5" y="222" width="117" height="84"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="value" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oI0-Q2-tNG">
-                                <rect key="frame" x="125.66666666666669" y="28" width="165" height="84"/>
+                                <rect key="frame" x="106" y="28" width="165" height="84"/>
                                 <color key="textColor" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
@@ -50,7 +50,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Celsius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUH-0J-7Db">
-                                <rect key="frame" x="80.666666666666686" y="314" width="254" height="43"/>
+                                <rect key="frame" x="61" y="314" width="254" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -85,33 +85,14 @@
             <objects>
                 <viewController id="UOx-jO-03P" customClass="MapViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
                     <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="fa8-ZV-FzM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </mapView>
                     <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="gCa-8Q-gef"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLM-JF-8fy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1339.1304347826087" y="92.934782608695656"/>
-        </scene>
-        <!--Web Scene-->
-        <scene sceneID="kmR-eV-fnh">
-            <objects>
-                <viewController title="Web Scene" id="OyK-pa-bmF" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Fv0-ou-sJ1"/>
-                        <viewControllerLayoutGuide type="bottom" id="E4g-F5-KBJ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fPo-hL-n8O">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Web" id="D0q-Hi-8qa"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bmm-5f-4Gd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2220" y="93"/>
+            <point key="canvasLocation" x="1401" y="-310"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="oLa-1E-0nQ">
@@ -126,12 +107,27 @@
                     <connections>
                         <segue destination="UOx-jO-03P" kind="relationship" relationship="viewControllers" id="Mjj-JZ-dl9"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="QM1-s2-1nT"/>
-                        <segue destination="OyK-pa-bmF" kind="relationship" relationship="viewControllers" id="R4i-Op-c1c"/>
+                        <segue destination="DvO-Uo-ZcT" kind="relationship" relationship="viewControllers" id="0gR-Ka-HDk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gub-Au-crg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="431.8840579710145" y="92.934782608695656"/>
+        </scene>
+        <!--Web-->
+        <scene sceneID="WzJ-ge-Y2F">
+            <objects>
+                <viewController id="DvO-Uo-ZcT" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="j1Y-nl-fNV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </webView>
+                    <tabBarItem key="tabBarItem" title="Web" id="ZdN-Rv-LoQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MVu-IO-ta2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1394" y="424"/>
         </scene>
     </scenes>
     <resources>
