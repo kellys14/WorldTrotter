@@ -16,3 +16,25 @@ class MapViewController: UIViewController {
         print("MapViewController loaded its view")
     }
 }
+
+/*
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+    var mapView: MKMapView!
+}
+*/
+
+//Below needs its own delegate file, should be on Apple API site
+/* func mapViewWillStartLocating... {
+ 
+ }
+*/
+
+//  Not sure if this goes here
+/* let locationManager = CCLLocationManager() {
+    locationManager.delegate = self
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    locationManager.requestAlwaysAuthorization()
+    locationManager.startUpdatingLocation()
+ } */
+
+

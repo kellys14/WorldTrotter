@@ -47,8 +47,46 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         
         print("ConversionViewController loaded it's view.")
         
+        let date = NSDate()
+        let calendar = NSCalendar.current
+        let hour = calendar.component(.hour, from: date as Date)
+        
+        let color = ["Morning": UIColor.blue, "Evening" : UIColor.darkGray]
+        
+        switch hour {
+        case 0...5:
+            view.backgroundColor = color["Evening"]
+        case 6...18:
+            view.backgroundColor = color["Morning"]
+        case 19...23:
+            view.backgroundColor = color["Evening"]
+        default:
+            view.backgroundColor = UIColor.white
+        }
+        
         updateCelsiusLabel()
     }
+    
+/*    override func viewDidAppear(_:) {
+       //super.viewDidAppear()
+        let date = NSDate()
+        let calendar = NSCalendar.current
+        let hour = calendar.component(.hour, from: date as Date)
+    
+        
+        let color = ["Morning": UIColor.blue, "Evening" : UIColor.darkGray]
+        
+        switch hour {
+        case 0...5:
+            view.backgroundColor = color["Evening"]
+        case 6...18:
+            view.backgroundColor = color["Morning"]
+        case 19...23:
+            view.backgroundColor = color["Evening"]
+        default:
+            view.backgroundColor = UIColor.white
+        }
+    } */
     
     @IBAction func dismissKeyboard(_ sender: AnyObject) {
         textField.resignFirstResponder()
