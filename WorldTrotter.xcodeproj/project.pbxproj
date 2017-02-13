@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4721B22E1E5217CE007D89E4 /* WKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721B22D1E5217CE007D89E4 /* WKWebView.swift */; };
 		4725CD221E3953F5002E71C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4725CD211E3953F5002E71C4 /* AppDelegate.swift */; };
 		4725CD271E3953F5002E71C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4725CD251E3953F5002E71C4 /* Main.storyboard */; };
 		4725CD291E3953F5002E71C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4725CD281E3953F5002E71C4 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4721B22D1E5217CE007D89E4 /* WKWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKWebView.swift; sourceTree = "<group>"; };
 		4725CD1E1E3953F5002E71C4 /* WorldTrotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTrotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4725CD211E3953F5002E71C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4725CD261E3953F5002E71C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				4725CD281E3953F5002E71C4 /* Assets.xcassets */,
 				4725CD2A1E3953F5002E71C4 /* LaunchScreen.storyboard */,
 				4725CD2D1E3953F5002E71C4 /* Info.plist */,
+				4721B22D1E5217CE007D89E4 /* WKWebView.swift */,
 			);
 			path = WorldTrotter;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4725CD501E39851C002E71C4 /* ConversionViewController.swift in Sources */,
+				4721B22E1E5217CE007D89E4 /* WKWebView.swift in Sources */,
 				4751336A1E4B82C7006CF47A /* MapViewController.swift in Sources */,
 				4725CD221E3953F5002E71C4 /* AppDelegate.swift in Sources */,
 			);

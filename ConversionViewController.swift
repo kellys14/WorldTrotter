@@ -66,7 +66,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         
         updateCelsiusLabel()
     }
-    
+
+// ****Book says to do the following below...does not work. Check above***
 /*    override func viewDidAppear(_:) {
        //super.viewDidAppear()
         let date = NSDate()
