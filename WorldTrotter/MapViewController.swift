@@ -74,7 +74,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         view.addConstraint(x2CenterConstraint)
         pinSwitchButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pinSwitchButton)
-        pinSwitchButton.addTarget(self, action: "nextPin", for: .touchUpInside)
+//        pinSwitchButton.addTarget(self, action: "nextPin", for: .touchUpInside)
+        pinSwitchButton.addTarget(self, action: #selector(nextPin), for: .touchUpInside)
         let pinSwitchBottomConstraint = pinSwitchButton.bottomAnchor.constraint(equalTo:bottomLayoutGuide.topAnchor, constant: -30)
         
         pinSwitchBottomConstraint.isActive = true
@@ -138,17 +139,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBAction func nextPin(sender: UIButton) {
 //        pIndex = (pIndex + 1) % 4
 //        let regionSet: geocodeAddressString // need to declare?
-        let geoaddress = CLGeocoder()
+    //   let geoaddress = CLGeocoder()
         
         switch pIndex {
         case 0:
             let centerPoint = CLLocationCoordinate2D(latitude: 42.3118036, longitude: -71.21696250000002)
 //            let regionSet = MKCoordinateRegion(center: geoaddress.geocodeAddressString(locations[pIndex]), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            let region = MKCoordinateRegion(center: centerPoint, span: MKCoordinateSpan(latitudeDelta: 10.01, longitudeDelta: 10.01))
+            let region = MKCoordinateRegion(center: centerPoint, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             mapView.setRegion(region, animated: true)
         default:
             break
         }
+/*        let userLocation = mapView.userLocation
+        
+        let region = MKCoordinateRegionMakeWithDistance(
+            userLocation.location!.coordinate, 2000, 2000)
+        
+        mapView.setRegion(region, animated: true) */
 
         
     
