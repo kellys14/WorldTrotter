@@ -15,7 +15,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     let locationManager = CLLocationManager()
     
-    var locations = ["Newton Upper Falls, Massachusetts", "Franklin St. Boston, Massachusetts",
+    var locations = ["52 Wetherell St. Newton, Massachusetts", "High Point University",
                      "Naples, Florida"]
     
     override func loadView() {
@@ -31,9 +31,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             = UIColor.white.withAlphaComponent(0.5)
         segmentedControl.selectedSegmentIndex = 0
         
-        segmentedControl.addTarget(self,
-                                   action: #selector(MapViewController.mapTypeChanged(_:)),
-                                   for: .valueChanged)
+        segmentedControl.addTarget(self, action: #selector(MapViewController.mapTypeChanged(_:)), for: .valueChanged)
         
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(segmentedControl)
@@ -92,16 +90,26 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         
+        dropPin(address: "52 Wetherell St. Newton, Massachusetts")
+        dropPin(address: "High Point University")
+        dropPin(address: "Naples, Florida")
+      
+        print("MapView successfuly dropped pins")
     }
     
-/*    func dropPin(address: String) {
+    func dropPin(address: String) {
         let geoaddress = CLGeocoder()
         
         geoaddress.geocodeAddressString(address) { CLPlacemark, error in
-        
-        let annotation = MKPointAnnotation()
-        
-    }*/
+            for placemark in CLPlacemark!
+            {
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = (placemark.location!.coordinate)
+                annotation.title = address
+                self.mapView.addAnnotation(annotation)
+            }
+        }
+    }
     
     
     func mapTypeChanged(_ segControl: UISegmentedControl) {
@@ -125,7 +133,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     } */
     
     func nextPin(sender: UIButton) {
-        
         print("Rotating through pins")
     
         // add cyclePins
