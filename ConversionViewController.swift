@@ -47,10 +47,10 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         
         print("ConversionViewController loaded it's view.")
         
-//        let date = NSDate()
-  //      let calendar = NSCalendar.current
-    //    let hour = calendar.component(.hour, from: date as Date)
-        let hour = 19
+        let date = NSDate()
+        let calendar = NSCalendar.current
+        let hour = calendar.component(.hour, from: date as Date)
+
         let color = ["Morning": UIColor.blue, "Evening" : UIColor.darkGray]
         
         switch hour {

@@ -9,9 +9,14 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     var mapView: MKMapView!
+    
+    let locationManager = CLLocationManager()
+    
+    var locations = ["Newton Upper Falls, Massachusetts", "Franklin St. Boston, Massachusetts",
+                     "Naples, Florida"]
     
     override func loadView() {
         // Create a map view
@@ -45,7 +50,59 @@ class MapViewController: UIViewController {
         topConstraint.isActive = true
         leadingConstraint.isActive = true
         trailingConstraint.isActive = true
+    
+        let locateButton = UIButton()
+        locateButton.setTitle("Locate Me", for: []) // [] = normal
+        locateButton.setTitleColor(UIColor.black, for: [])
+        locateButton.setTitleShadowColor(UIColor.darkGray, for: [])
+        locateButton.frame = CGRect(x: 0, y: 0, width: 100, height: 225) // Change number?
+        let xCenterConstraint = NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal,toItem: locateButton, attribute: .leftMargin, multiplier: 5.5, constant: 0)
+        view.addConstraint(xCenterConstraint) // Above change constraint?
+        locateButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(locateButton) // Reorganize
+//        locateButton.addTarget(self, action: #selector(locateMe(_:)), for: .touchUpInside)
+//        locateButton.addTarget(self, action: Selector(("locateMe")), for: .touchUpInside)
+        let findBottomConstraint = locateButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -20) // Change number?
+        
+        findBottomConstraint.isActive = true
+        
+        let pinSwitchButton = UIButton()
+        pinSwitchButton.setTitle("Next Pin", for: [])
+        pinSwitchButton.setTitleColor(UIColor.black, for: [])
+        pinSwitchButton.setTitleShadowColor(UIColor.black, for: [])
+        pinSwitchButton.frame = CGRect(x: 0, y: 0, width: 300, height: 500)
+        let x2CenterConstraint = NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: pinSwitchButton, attribute: .leftMargin, multiplier: 5.5, constant: 0)
+        view.addConstraint(x2CenterConstraint)
+        pinSwitchButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(pinSwitchButton)
+        pinSwitchButton.addTarget(self, action: "nextPin", for: .touchUpInside)
+        let pinSwitchBottomConstraint = pinSwitchButton.bottomAnchor.constraint(equalTo:bottomLayoutGuide.topAnchor, constant: -50)
+        
+        pinSwitchBottomConstraint.isActive = true
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        print("MapViewController loaded its view")
+        
+        mapView.showsUserLocation = true
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        
+    }
+    
+/*    func dropPin(address: String) {
+        let geoaddress = CLGeocoder()
+        
+        geoaddress.geocodeAddressString(address) { CLPlacemark, error in
+        
+        let annotation = MKPointAnnotation()
+        
+    }*/
+    
     
     func mapTypeChanged(_ segControl: UISegmentedControl) {
         switch segControl.selectedSegmentIndex {
@@ -60,12 +117,24 @@ class MapViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+/*    func locateMe(sender: UIButon) {
+        print("Registered button press to Locate")
         
-        print("MapViewController loaded its view")
+        mapView.setUserTrackingMode(.follow, animated: true)
+        mapView.showsUserLocation = true
+    } */
+    
+    func nextPin(sender: UIButton) {
+        
+        print("Rotating through pins")
+    
+        // add cyclePins
     }
+    
+
 }
+
+
 
 
 /*
