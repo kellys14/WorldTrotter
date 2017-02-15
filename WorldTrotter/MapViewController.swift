@@ -17,6 +17,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     var locations = ["52 Wetherell St. Newton, Massachusetts", "High Point University",
                      "Naples, Florida"]
+    var pIndex: Int = 0
     
     override func loadView() {
         // Create a map view
@@ -60,7 +61,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         view.addSubview(locateButton) // Reorganize
 //        locateButton.addTarget(self, action: #selector(locateMe(_:)), for: .touchUpInside)
 //        locateButton.addTarget(self, action: Selector(("locateMe")), for: .touchUpInside)
-        let findBottomConstraint = locateButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -20) // Change number?
+        let findBottomConstraint = locateButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -10)
         
         findBottomConstraint.isActive = true
         
@@ -74,7 +75,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         pinSwitchButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pinSwitchButton)
         pinSwitchButton.addTarget(self, action: "nextPin", for: .touchUpInside)
-        let pinSwitchBottomConstraint = pinSwitchButton.bottomAnchor.constraint(equalTo:bottomLayoutGuide.topAnchor, constant: -50)
+        let pinSwitchBottomConstraint = pinSwitchButton.bottomAnchor.constraint(equalTo:bottomLayoutGuide.topAnchor, constant: -30)
         
         pinSwitchBottomConstraint.isActive = true
     }
@@ -90,11 +91,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         
-        dropPin(address: "52 Wetherell St. Newton, Massachusetts")
-        dropPin(address: "High Point University")
-        dropPin(address: "Naples, Florida")
+        dropPin(address: locations[0])
+        dropPin(address: locations[1])
+        dropPin(address: locations[2])
       
         print("MapView successfuly dropped pins")
+        
+        
     }
     
     func dropPin(address: String) {
@@ -132,23 +135,34 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.showsUserLocation = true
     } */
     
-    func nextPin(sender: UIButton) {
-        print("Rotating through pins")
+    @IBAction func nextPin(sender: UIButton) {
+//        pIndex = (pIndex + 1) % 4
+//        let regionSet: geocodeAddressString // need to declare?
+        let geoaddress = CLGeocoder()
+        
+        switch pIndex {
+        case 0:
+            let centerPoint = CLLocationCoordinate2D(latitude: 42.3118036, longitude: -71.21696250000002)
+//            let regionSet = MKCoordinateRegion(center: geoaddress.geocodeAddressString(locations[pIndex]), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            let region = MKCoordinateRegion(center: centerPoint, span: MKCoordinateSpan(latitudeDelta: 10.01, longitudeDelta: 10.01))
+            mapView.setRegion(region, animated: true)
+        default:
+            break
+        }
+
+        
     
-        // add cyclePins
+        print("Rotating through pins")
     }
     
 
 }
 
-
-
-
 /*
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-    var mapView: MKMapView!
-}
-*/
+protocol CLLocationManagerDelegate {  // Delegate protocal????
+    optional func mapViewWillStartLocating
+    
+} */
 
 //Below needs its own delegate file, should be on Apple API site
 /* func mapViewWillStartLocating... {
