@@ -16,7 +16,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     let locationManager = CLLocationManager()
     
     var locations = ["52 Wetherell St. Newton, Massachusetts", "High Point University",
-                     "Naples, Florida"]
+                     "822 Sterling Oaks Blvd, Naples, FL 34110, USA"]
     var pIndex: Int = 0
     
     override func loadView() {
@@ -59,8 +59,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         view.addConstraint(xCenterConstraint) // Above change constraint?
         locateButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(locateButton) // Reorganize
-//        locateButton.addTarget(self, action: #selector(locateMe(_:)), for: .touchUpInside)
-//        locateButton.addTarget(self, action: Selector(("locateMe")), for: .touchUpInside)
+        locateButton.addTarget(self, action: #selector(locateMe), for: .touchUpInside)
         let findBottomConstraint = locateButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -10)
         
         findBottomConstraint.isActive = true
@@ -69,12 +68,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         pinSwitchButton.setTitle("Next Pin", for: [])
         pinSwitchButton.setTitleColor(UIColor.black, for: [])
         pinSwitchButton.setTitleShadowColor(UIColor.black, for: [])
-        pinSwitchButton.frame = CGRect(x: 0, y: 0, width: 300, height: 500)
+        pinSwitchButton.frame = CGRect(x: 0, y: 0, width: 100, height: 225)
         let x2CenterConstraint = NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: pinSwitchButton, attribute: .leftMargin, multiplier: 5.5, constant: 0)
         view.addConstraint(x2CenterConstraint)
         pinSwitchButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pinSwitchButton)
-//        pinSwitchButton.addTarget(self, action: "nextPin", for: .touchUpInside)
         pinSwitchButton.addTarget(self, action: #selector(nextPin), for: .touchUpInside)
         let pinSwitchBottomConstraint = pinSwitchButton.bottomAnchor.constraint(equalTo:bottomLayoutGuide.topAnchor, constant: -30)
         
@@ -129,40 +127,37 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-/*    func locateMe(sender: UIButon) {
+    @IBAction func locateMe(sender: UIButton) {
         print("Registered button press to Locate")
         
         mapView.setUserTrackingMode(.follow, animated: true)
         mapView.showsUserLocation = true
-    } */
+    }
     
     @IBAction func nextPin(sender: UIButton) {
-//        pIndex = (pIndex + 1) % 4
-//        let regionSet: geocodeAddressString // need to declare?
-    //   let geoaddress = CLGeocoder()
-        
         switch pIndex {
         case 0:
             let centerPoint = CLLocationCoordinate2D(latitude: 42.3118036, longitude: -71.21696250000002)
-//            let regionSet = MKCoordinateRegion(center: geoaddress.geocodeAddressString(locations[pIndex]), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             let region = MKCoordinateRegion(center: centerPoint, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             mapView.setRegion(region, animated: true)
-        default:
-            break
+        case 1:
+            let centerPoint = CLLocationCoordinate2D(latitude: 35.9732327, longitude: -79.9950397)
+            let region = MKCoordinateRegion(center: centerPoint, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            mapView.setRegion(region, animated: true)
+        case 2:
+            let centerPoint = CLLocationCoordinate2D(latitude: 26.3135184, longitude: -81.80417349999999)
+            let region = MKCoordinateRegion(center: centerPoint, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            mapView.setRegion(region, animated: true)
+        default:    // Should this default to current location? Potentialy change...
+            let userLocation = mapView.userLocation
+            let region = MKCoordinateRegionMakeWithDistance(userLocation.location!.coordinate, 2000, 2000)
+            mapView.setRegion(region, animated: true)
         }
-/*        let userLocation = mapView.userLocation
         
-        let region = MKCoordinateRegionMakeWithDistance(
-            userLocation.location!.coordinate, 2000, 2000)
-        
-        mapView.setRegion(region, animated: true) */
-
-        
-    
         print("Rotating through pins")
+        pIndex = (pIndex + 1) % 4
+        print("pIndex is currently equal to: \(pIndex)")
     }
-    
-
 }
 
 /*
