@@ -84,7 +84,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         print("MapViewController loaded its view")
         
-        mapView.showsUserLocation = true
+/*        mapView.showsUserLocation = true
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
@@ -92,7 +92,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         dropPin(address: locations[0])
         dropPin(address: locations[1])
-        dropPin(address: locations[2])
+        dropPin(address: locations[2]) */
       
         print("MapView successfuly dropped pins")
         
@@ -129,6 +129,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     @IBAction func locateMe(sender: UIButton) {
         
+        mapView.showsUserLocation = true
+//        locationManager.delegate = self
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+//        locationManager.startUpdatingLocation()
+        
         mapView.setUserTrackingMode(.follow, animated: true)
         mapView.showsUserLocation = true
         
@@ -138,14 +144,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBAction func nextPin(sender: UIButton) {
         switch pIndex {
         case 0:
+            dropPin(address: locations[0])
             let centerPoint = CLLocationCoordinate2D(latitude: 42.3118036, longitude: -71.21696250000002)
             let region = MKCoordinateRegion(center: centerPoint, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             mapView.setRegion(region, animated: true)
         case 1:
+            dropPin(address: locations[1])
             let centerPoint = CLLocationCoordinate2D(latitude: 29.951066, longitude: -90.071532)
             let region = MKCoordinateRegion(center: centerPoint, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             mapView.setRegion(region, animated: true)
         case 2:
+            dropPin(address: locations[2])
             let centerPoint = CLLocationCoordinate2D(latitude: 26.3135184, longitude: -81.80417349999999)
             let region = MKCoordinateRegion(center: centerPoint, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             mapView.setRegion(region, animated: true)
@@ -160,6 +169,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         print("pIndex is currently equal to: \(pIndex)")
     }
 }
+
+/* When map loads, you should create a local variable to take in the
+ the coordinants to set the zoomOut to be used with locateMe */
+
+/* Locate Me button should have a turn on/turn off base setting, where when it is
+ clicked and turned on, it utilizes the delegates. When it is turned off, it doesn't use
+ the delegates */
 
 /*
 protocol CLLocationManagerDelegate {  // Delegate protocal????
