@@ -15,7 +15,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     let locationManager = CLLocationManager()
     
-    var locations = ["52 Wetherell St. Newton, Massachusetts", "High Point University",
+    var locations = ["52 Wetherell St. Newton, Massachusetts", "New Orleans, LA",
                      "822 Sterling Oaks Blvd, Naples, FL 34110, USA"]
     var pIndex: Int = 0
     
@@ -128,10 +128,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     @IBAction func locateMe(sender: UIButton) {
-        print("Registered button press to Locate")
         
         mapView.setUserTrackingMode(.follow, animated: true)
         mapView.showsUserLocation = true
+        
+        print("Successful zoom on userLocation")
     }
     
     @IBAction func nextPin(sender: UIButton) {
@@ -141,7 +142,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let region = MKCoordinateRegion(center: centerPoint, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             mapView.setRegion(region, animated: true)
         case 1:
-            let centerPoint = CLLocationCoordinate2D(latitude: 35.9732327, longitude: -79.9950397)
+            let centerPoint = CLLocationCoordinate2D(latitude: 29.951066, longitude: -90.071532)
             let region = MKCoordinateRegion(center: centerPoint, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             mapView.setRegion(region, animated: true)
         case 2:
@@ -154,7 +155,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             mapView.setRegion(region, animated: true)
         }
         
-        print("Rotating through pins")
+        print("Successful zoom on pin ")
         pIndex = (pIndex + 1) % 4
         print("pIndex is currently equal to: \(pIndex)")
     }
