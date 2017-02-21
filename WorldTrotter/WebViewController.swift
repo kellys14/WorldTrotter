@@ -19,17 +19,22 @@ class WebViewController: UIViewController {
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         view = webView
         
+        print("WebViewController loaded it's view")
+        
+        let myURL = URL(string: "https://www.bignerdranch.com")
+        let myRequest = URLRequest(url: myURL!)
+        webView.load(myRequest)
+        
     }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        print("WebViewController loaded it's view")
-        
-        let myURL = URL(string: "www.bignerdranch.com")
+        print("WebViewController viewDidLoad")
+/*        let myURL = URL(string: "www.bignerdranch.com")
         let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
+        webView.load(myRequest)*/
     }
 }
 

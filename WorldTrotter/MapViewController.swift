@@ -175,7 +175,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
 /* Locate Me button should have a turn on/turn off base setting, where when it is
  clicked and turned on, it utilizes the delegates. When it is turned off, it doesn't use
- the delegates */
+ the delegates 
+ -mapViewDelegate
+ -centerCoordinant delegate */
 
 /*
 protocol CLLocationManagerDelegate {  // Delegate protocal????
