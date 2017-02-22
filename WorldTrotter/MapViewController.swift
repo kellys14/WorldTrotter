@@ -16,7 +16,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // A property of MapViewController
     let locationManager = CLLocationManager()
     
-    var defaultLocationRegion: MKCoordinateRegion
+    var defaultLocationRegion: MKCoordinateRegion?
     
     var locations = ["52 Wetherell St. Newton, Massachusetts", "New Orleans, LA",
                      "822 Sterling Oaks Blvd, Naples, FL 34110, USA"]
@@ -78,25 +78,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         pinSwitchButton.addTarget(self, action: #selector(nextPin), for: .touchUpInside)
         let pinSwitchBottomConstraint = pinSwitchButton.bottomAnchor.constraint(equalTo:bottomLayoutGuide.topAnchor, constant: -30)
         pinSwitchBottomConstraint.isActive = true
-        
-        locationMngr(manager: locationManager, didUpdateLocations: [])
-    }
-    
-    // Attempting to grab default center coordinant
-    var lat = ""
-    var long = "" // Function below taking CL Location...need to change first parameter
-    func locationMngr(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let defaultLocation:CLLocationCoordinate2D = manager.location!.coordinate
-        lat = String(defaultLocation.latitude)
-        long = String(defaultLocation.longitude)
-        print("Location Lat: \(lat) | Location Long: \(long)")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         print("MapViewController loaded its view")
-    
     }
     
     override func viewDidAppear(_ animated: Bool) { // Called everytime view controller is moved on screen
@@ -104,9 +90,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func setDefaultLocationRegion() {
-      //  let region
         let region = defaultLocationRegion
-        mapView.setRegion(region, animated: true)
+        mapView.setRegion(region!, animated: true)
     }
     
     func mapTypeChanged(_ segControl: UISegmentedControl) {
@@ -122,48 +107,44 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-/*    protocol MKMapViewDelegate: MKMapView { // Do I need?
-        optional func mapViewWillStartLoadingUser(_ mapView: MKMapView) -> Bool
-    }*/
-    // Center coordinant delegate?
-    
-    func mapViewWillStartLocatingUser(_ mapView: MKMapView) -> Bool {
-        
-        return true
-    }
-    
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) -> Bool {
-     
-        return true
-    }
-    
-    @IBAction func locateMe(sender: UIButton) {
-        // if showsUserLocaiton is off turn it on, if on turn it off. Turn/off triggers delegates
-        
-//        if mapView.showsUserLocation == false { // Going from off to on
-//            func mapViewWillStartLoadingUser(_ mapView: mapView)
-            
-            
-  /*       1) func mapViewWillStartLocatingUser(_ mapView: MKMapView)
+/*    func mapViewWillStartLocatingUser(_ mapView: MKMapView) {
+        if mapView.showsUserLocation == false {
+            if pIndex == 3 {
+                defaultLocationRegion = mapView.region
+            }
+            mapView.showsUserLocation = true
+        }
             -Determines based on pinIndex if something needs to be turned off AND if we need to capture
             -the default location.
-         2) func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) 
+    }
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
             -Display the current user location
+    }
+    func mapViewDidStopLocatingUser(_ mapView: MKMapView) {
+            -go back to default location
+    } */
+    
+    @IBAction func locateMe(sender: UIButton) {
+        
+        if mapView.showsUserLocation == true {
+            mapView.showsUserLocation = false
+            setDefaultLocationRegion()
+/*            if pIndex == 3 {
+                mapView.removeAnnotations(self.mapView.annotations)
+                pIndex = (pIndex + 1) % 4
+            } */
         }
-         if mapView.showsUserLocation == true { // Going from on to off
-           1) func mapViewDidStopLocatingUser(_ mapView: MKMapView)
-           2) go back to default location
-         }
+        else {
+            mapView.showsUserLocation = true
+            locationManager.requestAlwaysAuthorization()
+            mapView.setUserTrackingMode(.follow, animated: true)
+        }
         
-        */
-        mapView.showsUserLocation = true
-        locationManager.requestAlwaysAuthorization()
         
-        mapView.setUserTrackingMode(.follow, animated: true)
-        mapView.showsUserLocation = true
         
         print("Successful zoom on userLocation")
     }
+
     
     func dropPin(address: String) {
         let geoaddress = CLGeocoder()
@@ -192,28 +173,29 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func nextPin(sender: UIButton)
     {
-        // Below prints the current coordinants
-        locationMngr(manager: locationManager, didUpdateLocations: [])
-        
 //        clearPin()
 // Maybe try clearing the pin that was prior...clearPin(locations[1])
         switch pIndex {
         case 0:
+            mapView.removeAnnotations(self.mapView.annotations)
             dropPin(address: locations[0])
             let centerPoint = CLLocationCoordinate2D(latitude: 42.3118036, longitude: -71.21696250000002)
             let region = MKCoordinateRegion(center: centerPoint, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             mapView.setRegion(region, animated: true)
         case 1:
+            mapView.removeAnnotations(self.mapView.annotations)
             dropPin(address: locations[1])
             let centerPoint = CLLocationCoordinate2D(latitude: 29.951066, longitude: -90.071532)
             let region = MKCoordinateRegion(center: centerPoint, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             mapView.setRegion(region, animated: true)
         case 2:
+            mapView.removeAnnotations(self.mapView.annotations)
             dropPin(address: locations[2])
             let centerPoint = CLLocationCoordinate2D(latitude: 26.3135184, longitude: -81.80417349999999)
             let region = MKCoordinateRegion(center: centerPoint, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             mapView.setRegion(region, animated: true)
         case 3:
+            mapView.removeAnnotations(self.mapView.annotations)
             if mapView.showsUserLocation == true {
                 let userLocation = mapView.userLocation
                 let region = MKCoordinateRegionMakeWithDistance(userLocation.location!.coordinate, 2000, 2000)
@@ -222,38 +204,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             if mapView.showsUserLocation == false {
                 setDefaultLocationRegion()
             }
-/*        default:    // Should this default to current location? Potentialy change...
-            let userLocation = mapView.userLocation
-            let region = MKCoordinateRegionMakeWithDistance(userLocation.location!.coordinate, 2000, 2000)
-            mapView.setRegion(region, animated: true)
-        } */
+        default:    // Should this default to current location? Potentialy change...
+            print("Default case for switch statement called")
+        }
         print("Successful zoom on pin \(pIndex)")
         pIndex = (pIndex + 1) % 4
     }
+    
 }
-
-/* When map loads, you should create a local variable to take in the
- the coordinants to set the zoomOut to be used with locateMe */
-
-/* Locate Me button should have a turn on/turn off base setting, where when it is
- clicked and turned on, it utilizes the delegates. When it is turned off, it doesn't use
- the delegates 
- -mapViewDelegate (MKPinAnnotationView?)
- -centerCoordinant delegate */
-
-
-//Below needs its own delegate file, should be on Apple API site
-/* func mapViewWillStartLocating... {
- 
- }
-*/
-
-//  Not sure if this goes here
-/* let locationManager = CCLLocationManager() {
-    locationManager.delegate = self
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    locationManager.requestAlwaysAuthorization()
-    locationManager.startUpdatingLocation()
- } */
 
 

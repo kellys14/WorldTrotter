@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -63,6 +64,7 @@
                             <constraint firstItem="iLC-YT-ptD" firstAttribute="top" secondItem="7fp-8A-wWt" secondAttribute="bottom" constant="8" id="cD6-S8-VKm"/>
                             <constraint firstItem="oI0-Q2-tNG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="dFA-9q-nq9"/>
                             <constraint firstItem="Rvz-pv-siG" firstAttribute="centerX" secondItem="oI0-Q2-tNG" secondAttribute="centerX" id="gHw-5M-6M6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rvz-pv-siG" secondAttribute="trailing" constant="17.5" id="hhT-57-3Pi"/>
                             <constraint firstItem="Rvz-pv-siG" firstAttribute="top" secondItem="oI0-Q2-tNG" secondAttribute="bottom" constant="8" id="ns8-d5-dCE"/>
                             <constraint firstItem="OUH-0J-7Db" firstAttribute="centerX" secondItem="oI0-Q2-tNG" secondAttribute="centerX" id="sMs-Ti-Owp"/>
                             <constraint firstItem="7fp-8A-wWt" firstAttribute="top" secondItem="Rvz-pv-siG" secondAttribute="bottom" constant="8" id="tyX-Z6-8zp"/>
@@ -87,6 +89,9 @@
                     <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="fa8-ZV-FzM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <connections>
+                            <outlet property="delegate" destination="UOx-jO-03P" id="V6K-Li-gBb"/>
+                        </connections>
                     </mapView>
                     <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="gCa-8Q-gef"/>
                 </viewController>
