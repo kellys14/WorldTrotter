@@ -22,19 +22,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Fahrenheit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvz-pv-siG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Fahrenheit" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvz-pv-siG">
                                 <rect key="frame" x="35.5" y="120" width="306" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is really" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fp-8A-wWt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is really" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fp-8A-wWt">
                                 <rect key="frame" x="127.5" y="171" width="119" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLC-YT-ptD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLC-YT-ptD">
                                 <rect key="frame" x="128.5" y="222" width="117" height="84"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
@@ -50,7 +50,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="h7b-QO-mQw"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Celsius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUH-0J-7Db">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Celsius" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUH-0J-7Db">
                                 <rect key="frame" x="61" y="314" width="254" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
@@ -59,13 +59,20 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.95686274509803915" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="OUH-0J-7Db" secondAttribute="trailing" id="0qo-11-HMr"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Rvz-pv-siG" secondAttribute="trailing" id="22g-RK-Q9d"/>
+                            <constraint firstItem="Rvz-pv-siG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Dpf-oR-xGc"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="7fp-8A-wWt" secondAttribute="trailing" id="KIj-1H-Xm2"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="iLC-YT-ptD" secondAttribute="trailing" id="Tc3-x5-oup"/>
                             <constraint firstItem="7fp-8A-wWt" firstAttribute="centerX" secondItem="oI0-Q2-tNG" secondAttribute="centerX" constant="-1" id="UUz-97-BLg"/>
+                            <constraint firstItem="7fp-8A-wWt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Uap-mR-AJX"/>
                             <constraint firstItem="iLC-YT-ptD" firstAttribute="centerX" secondItem="oI0-Q2-tNG" secondAttribute="centerX" constant="-1" id="a4U-TS-jyX"/>
                             <constraint firstItem="iLC-YT-ptD" firstAttribute="top" secondItem="7fp-8A-wWt" secondAttribute="bottom" constant="8" id="cD6-S8-VKm"/>
                             <constraint firstItem="oI0-Q2-tNG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="dFA-9q-nq9"/>
-                            <constraint firstItem="Rvz-pv-siG" firstAttribute="centerX" secondItem="oI0-Q2-tNG" secondAttribute="centerX" id="gHw-5M-6M6"/>
+                            <constraint firstItem="iLC-YT-ptD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="dj6-zG-Ide"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rvz-pv-siG" secondAttribute="trailing" constant="17.5" id="hhT-57-3Pi"/>
                             <constraint firstItem="Rvz-pv-siG" firstAttribute="top" secondItem="oI0-Q2-tNG" secondAttribute="bottom" constant="8" id="ns8-d5-dCE"/>
+                            <constraint firstItem="OUH-0J-7Db" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="rkt-8d-UH3"/>
                             <constraint firstItem="OUH-0J-7Db" firstAttribute="centerX" secondItem="oI0-Q2-tNG" secondAttribute="centerX" id="sMs-Ti-Owp"/>
                             <constraint firstItem="7fp-8A-wWt" firstAttribute="top" secondItem="Rvz-pv-siG" secondAttribute="bottom" constant="8" id="tyX-Z6-8zp"/>
                             <constraint firstItem="OUH-0J-7Db" firstAttribute="top" secondItem="iLC-YT-ptD" secondAttribute="bottom" constant="8" id="wFQ-wo-oin"/>

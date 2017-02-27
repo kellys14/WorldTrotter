@@ -53,6 +53,7 @@
 		4725CD411E3953F5002E71C4 /* WorldTrotterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTrotterUITests.swift; sourceTree = "<group>"; };
 		4725CD431E3953F5002E71C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4725CD4F1E39851C002E71C4 /* ConversionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConversionViewController.swift; path = ../ConversionViewController.swift; sourceTree = "<group>"; };
+		473ADC541E63B17D00E0AC7B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		475133671E4B7DC9006CF47A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		475133691E4B82C7006CF47A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -324,6 +325,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4725CD261E3953F5002E71C4 /* Base */,
+				473ADC541E63B17D00E0AC7B /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
